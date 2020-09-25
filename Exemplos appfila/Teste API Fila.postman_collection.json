@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "84bee3bb-9668-4186-997c-9657f9493e13",
+		"name": "Teste API Fila",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar Usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Vitor\",\r\n    \"genero\": \"Masculino\",\r\n    \"email\": \"emaildovitor@hotmail.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:3333/createUser",
+					"host": [
+						"Localhost"
+					],
+					"port": "3333",
+					"path": [
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar a Fila",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:3333/addToLine",
+					"host": [
+						"Localhost"
+					],
+					"port": "3333",
+					"path": [
+						"addToLine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mostrar fila",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:3333/showLine",
+					"host": [
+						"Localhost"
+					],
+					"port": "3333",
+					"path": [
+						"showLine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar Por Genero",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"genero\": \"Masculino\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:3333/filterLine",
+					"host": [
+						"Localhost"
+					],
+					"port": "3333",
+					"path": [
+						"filterLine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encontrar Posicao",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"emaildovitor@hotmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:3333/findPosition",
+					"host": [
+						"Localhost"
+					],
+					"port": "3333",
+					"path": [
+						"findPosition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remover Do Inicio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "Localhost:3333/popLine",
+					"host": [
+						"Localhost"
+					],
+					"port": "3333",
+					"path": [
+						"popLine"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
