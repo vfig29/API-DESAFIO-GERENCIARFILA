@@ -1,0 +1,32 @@
+let totalID = 0;
+
+class Pessoa
+{
+    constructor (_nome, _genero, _email)
+    {
+        this.id = -1;
+        this.nome = _nome;
+        this.genero = _genero;
+        this.email = _email;
+
+    }
+
+    ConverterPessoaParaResposta(_posicaoFila)
+    {
+        var resposta = {
+            nome: this.nome,
+            genero: this.genero,
+            email: this.email,
+            posicao: _posicaoFila
+
+        };
+        return resposta;
+    }
+    GerarID()
+    {
+        this.id = totalID;
+        return totalID++;
+    }
+}
+
+module.exports = Pessoa;

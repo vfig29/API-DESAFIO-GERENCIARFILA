@@ -1,0 +1,43 @@
+class ValidacaoManager{
+    
+VarrerCamposPreenchidos(requestObj, numeroDeCampos)
+{
+    var requestValues = Object.values(requestObj);
+
+    if(numeroDeCampos != requestValues.length)
+    {
+        return false;
+    }
+    for(var i = 0; i < requestValues.length; i++)
+    {
+        if(!this.ChecarPreenchimento(requestValues[i]))
+        {
+            return false;
+        }
+
+    }
+    return true;
+}
+
+ChecarPreenchimento(campo)
+{
+    if(campo == "")
+    {
+        return false;
+    }
+    if(campo == null)
+    {
+        return false;
+    }
+    if(typeof(campo) == "undefined")
+    {
+        return false;
+    }
+    return true;
+}
+
+}
+
+module.exports = ValidacaoManager;
+
+

@@ -1,0 +1,106 @@
+
+let pessoasNaFila = new Array();
+
+class FilaManager
+{
+
+    GetFila()
+    {
+        return pessoasNaFila;
+    }
+
+    
+    ConverterIndiceParaPosicao(indice)
+    {
+        return indice + 1;
+    }
+
+    ConverterPosicaoParaIndice(posicao)
+    {
+        return posicao - 1;
+    }
+
+    async AdicionarNaFila(_pessoa)
+    {
+        if((ChecarSeIDEstaNaFila(_pessoa.id)))
+        {
+            var mensagem = "Este ID já está contido na fila"
+            return {mensagem};
+        }
+        else
+        {
+            pessoasNaFila.push(_pessoa);
+            var posicao = pessoasNaFila.length;
+            return {posicao};
+        }
+    }
+
+    async BuscarPorEmail(_email)
+    {
+        for(var i = 0; i < pessoasNaFila.length; i++)
+        {
+            if(pessoasNaFila[i].email == _email)
+            {
+                var posicao = this.ConverterIndiceParaPosicao(i);
+                return {posicao};
+            }
+        }
+        var mensagem = "Email não encontrado na fila."
+        return {mensagem};
+    }
+
+    ConverterFilaParaResposta(_pessoasNaFila)
+    {
+        var novaLista = new Array();
+        for(var i = 0; i < _pessoasNaFila.length; i++)
+        {
+            novaLista.push(_pessoasNaFila[i].ConverterPessoaParaResposta(this.ConverterIndiceParaPosicao(i)));
+        }
+
+        return novaLista;
+
+    }
+
+    FiltrarFilaPorGenero(_genero, _pessoasNaFila)
+    {
+        var novaLista = new Array();
+        console.log(_genero);
+        for(var i = 0; i < _pessoasNaFila.length; i++)
+        {
+            if(_genero == _pessoasNaFila[i].genero)
+            {
+                novaLista.push(_pessoasNaFila[i]);
+            }
+        }
+        return novaLista;
+    }
+
+    async RemoverDoFinalDaFila()
+    {
+        pessoasNaFila.pop();
+    }
+
+    async RemoverDoInicioDaFila()
+    {
+        var primeiraPessoa = pessoasNaFila[0];
+        pessoasNaFila.shift();
+        return primeiraPessoa;
+    }
+
+}
+
+
+function ChecarSeIDEstaNaFila(idBuscado)
+{
+    for(var i = 0; i < pessoasNaFila.length; i++)
+    {
+        console.log(pessoasNaFila[i].id);
+        if(idBuscado == pessoasNaFila[i].id)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+module.exports = FilaManager;
